@@ -67,6 +67,18 @@ export default function MainContent() {
     }
   };
 
+    const requestToDB = async () => {
+        try {
+            const response = await fetch("https://api.getblax.com/db/1");
+            const data = await response.json();
+            console.log("DB 요청 응답:", data);
+            alert(JSON.stringify(data, null, 2));
+        } catch (error) {
+            console.error("DB 요청 오류:", error);
+            alert("DB 요청에 실패했습니다.");
+        }
+    }
+
   // 1번 노래를 불러오는 함수 (재생 로직 제거)
   const requestAndPlayMusic = async () => {
     console.log('음악 재생 버튼 클릭됨!');
@@ -169,7 +181,13 @@ export default function MainContent() {
             >
               home으로 요청 보내기
             </button>
-          </div>
+            <button
+              onClick={requestToDB}
+              className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
+                      >
+              db로 요청 보내기
+            </button>
+            </div>
         </section>
       </main>
     </div>
