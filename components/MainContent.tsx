@@ -45,7 +45,7 @@ export default function MainContent() {
 
   const requestToMain = async () => {
     try {
-      const response = await fetch("http://localhost:8080");
+      const response = await fetch("https://api.getblax.com");
       const data = await response.json();
       console.log("메인 요청 응답:", data);
       alert(JSON.stringify(data, null, 2));
@@ -57,7 +57,7 @@ export default function MainContent() {
 
   const requestToHome = async () => {
     try {
-      const response = await fetch("http://localhost:8080/home");
+      const response = await fetch("https://api.getblax.com/home");
       const data = await response.json();
       console.log("home 요청 응답:", data);
       alert(JSON.stringify(data, null, 2));
@@ -71,7 +71,7 @@ export default function MainContent() {
   const requestAndPlayMusic = async () => {
     console.log('음악 재생 버튼 클릭됨!');
     try {
-      const response = await fetch('http://localhost:8080/music/1');
+      const response = await fetch('https://api.getblax.com/music/1');
       if (!response.ok) {
         throw new Error('네트워크 응답이 올바르지 않습니다.');
       }
